@@ -1,0 +1,65 @@
+{
+  "id": "1804198",
+  "name": "仿糗事百科",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "251786",
+      "name": "哭",
+      "font_class": "icon",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "1961093",
+      "name": "表情",
+      "font_class": "biaoqinghover",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "4130174",
+      "name": "笔 (1)",
+      "font_class": "bi",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "10678750",
+      "name": "签",
+      "font_class": "qian",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "12682823",
+      "name": "我 的",
+      "font_class": "wode",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "1180281",
+      "name": "动态",
+      "font_class": "dongtai",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "4147186",
+      "name": "递纸条",
+      "font_class": "dizhitiao",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "11057854",
+      "name": "shouye",
+      "font_class": "shouye",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    }
+  ]
+}
