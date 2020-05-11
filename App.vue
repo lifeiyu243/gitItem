@@ -19,4 +19,6 @@
 	@import './common/animate.css';
 	/* 引入字体图标 */
 	@import './common/iconfont.css';
+	/* 公共样式 */
+	@import './common/common.css';
 </style>

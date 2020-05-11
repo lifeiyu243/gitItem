@@ -3,7 +3,33 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"app-plus": {
+					"background":"#fff",
+					"titleNView":{
+						"backgroundColor":"#fff",
+						"searchInput":{
+							"backgroundColor":"#f7f7f7",
+							"align":"center",
+							"borderRadius":"5px",
+							"disabled":true,
+							"placeholderColor":"#ccc",
+							"placeholder":"请输入"						
+						},
+						"buttons":[{
+							"float":"left",
+							"fontSize":"24px",
+							"fontSrc":"/static/iconfont.ttf",
+							"text":"\ue650",
+							"color":"#ff9619"
+						},{
+							"float":"right",
+							"fontSize":"16px",
+							"fontSrc":"/static/iconfont.ttf",
+							"text":"\ue675",
+							"color":"#000"
+						}]
+					}
+				}
 			}
 		}
         ,{

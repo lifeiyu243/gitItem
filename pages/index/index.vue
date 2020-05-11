@@ -1,10 +1,52 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-			
-		</view>
+	<view>
+		<block v-for="(item,index) in list" :key="index">
+			<view class="index-list">
+				<view class="index-list1 u-f-ac u-f-jsb">
+					<view class="u-f-ac">
+						<image :src="item.userpic" mode="widthFix" lazy-load></image>
+						{{item.username}}
+					</view>
+					<view class="u-f-ac" v-show="item.isguanzhu">
+						<view class="icon iconfont icon-zengjia"></view>关注
+					</view>
+				</view>
+				<view class="index-list2">{{item.title}}</view>
+				<view class="index-list3 u-f-ajc">
+					<!-- 图片 -->
+					<image :src="item.titlepic" mode="widthFix" lazy-load></image>
+					<!-- 视频 -->
+					<template v-if="item.type=='video'">
+						<view class="icon iconfont icon-bofang index-list-play"></view>
+						<view class="index-list-playinfo">
+							{{item.playnum}}次播放 {{item.long}}
+						</view>
+					</template>
+				</view>
+				<view class="index-list4 u-f-ac u-f-jsb">
+					<view class="u-f-ac">
+						<view class="u-f-ac" :class="{'active':(item.infonum.index==1)}">
+							<view class="icon iconfont icon-icon_xiaolian-mian"></view>
+							{{item.infonum.dingnum}}
+						</view>
+						<view class="u-f-ac" :class="{'active':(item.infonum.index==2)}">
+							<view class="icon iconfont icon-kulian"></view>
+							{{item.infonum.cainum}}
+						</view>
+					</view>
+					<view class="u-f-ac">
+						<view class="u-f-ac">
+							<view class="icon iconfont icon-pinglun1"></view>
+							{{item.commentnum}}
+						</view>
+						<view class="u-f-ac">
+							<view class="icon iconfont icon-zhuanfa"></view>
+							{{item.sharenum}}
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
 	</view>
 </template>
 
@@ -12,7 +54,39 @@
 	export default {
 		data() {
 			return {
-				title: '我是首页'
+				list: [{
+						userpic: "../../static/demo/userpic/12.jpg",
+						username: "昵称",
+						isguanzhu: false,
+						title: "我是标题",
+						type: "img", // img:图文,video:视频
+						titlepic: "../../static/demo/datapic/11.jpg",
+						infonum: {
+							index: 0, //0:没有操作，1:顶,2:踩；
+							dingnum: 11,
+							cainum: 11,
+						},
+						commentnum: 10,
+						sharenum: 10,
+					},
+					{
+						userpic: "../../static/demo/userpic/12.jpg",
+						username: "昵称",
+						isguanzhu: true,
+						title: "我是标题",
+						type: "video", // img:图文,video:视频
+						titlepic: "../../static/demo/datapic/11.jpg",
+						playnum: "20w",
+						long: "2:47",
+						infonum: {
+							index: 1, //0:没有操作，1:顶,2:踩；
+							dingnum: 11,
+							cainum: 11,
+						},
+						commentnum: 10,
+						sharenum: 10,
+					}
+				]
 			}
 		},
 		onLoad() {
@@ -24,30 +98,76 @@
 	}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+<style scoped>
+	.index-list {
+		padding: 20upx;
+		border-bottom: 1upx solid #EEEEEE;
 	}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
+	.index-list1>view:first-child {
+		color: #999999;
 	}
 
-	.text-area {
-		display: flex;
-		justify-content: center;
+	.index-list1>view:first-child image {
+		width: 85upx;
+		height: 85upx;
+		border-radius: 100%;
+		margin-right: 10upx;
 	}
 
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+	.index-list1>view:last-child {
+		background: #F4F4F4;
+		border-radius: 5upx;
+		padding: 0 10upx;
+	}
+
+	.index-list2 {
+		padding-top: 15upx;
+		font-size: 32upx;
+	}
+
+	.index-list3 {
+		position: relative;
+		padding-top: 15upx;
+	}
+
+	.index-list3>image {
+		width: 100%;
+		border-radius: 20upx;
+	}
+
+	.index-list4 view {
+		color: #999999;
+	}
+
+	.index-list4 {
+		padding: 15upx 0;
+	}
+
+	.index-list4>view>view>view,
+	.index-list4>view>view:first-child {
+		margin-right: 10upx;
+	}
+
+	.index-list-play {
+		position: absolute;
+		font-size: 140upx;
+		color: #FFFFFF;
+	}
+
+	.index-list-playinfo {
+		position: absolute;
+		background: rgba(51, 51, 51, 0.72);
+		color: #FFFFFF;
+		bottom: 8upx;
+		right: 8upx;
+		border-radius: 40upx;
+		font-size: 22upx;
+		padding: 0 12upx;
+	}
+
+	.index-list4 .active,
+	.index-list4 .active>view {
+		color: #C5F61C;
 	}
 </style>
